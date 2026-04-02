@@ -182,3 +182,15 @@ body { font-family: sans-serif; background: #f0f2f5; }
 }
 
 .copy-btn:hover { background: #2980b9; }
+
+.ql-editor {
+  color: #000000 !important;
+}
+
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3,
+.ql-editor p,
+.ql-editor li {
+  color: #000000 !important;
+}
