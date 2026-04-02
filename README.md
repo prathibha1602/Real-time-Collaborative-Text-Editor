@@ -80,3 +80,25 @@ Each user gets a unique color. Their cursor position is broadcast to all other u
 ### Revision History
 The document is auto-saved every 2 seconds. A new revision is only created when content actually changes, preventing duplicate entries.
 
+## AI Tools Used
+
+- **Claude (Anthropic)** — Used for code generation, debugging, architecture decisions, and step-by-step implementation guidance throughout the project
+- **ChatGPT (OpenAI)** — Used for understanding concepts, clarifying implementation steps, and learning about WebSocket, OT, and MongoDB during development
+
+## Known Limitations
+
+- Free Railway tier may sleep after inactivity — first load may take 30 seconds
+- Cursor positions may drift slightly on very long documents
+- Revision history keeps last 20 versions only
+- No user authentication — anyone with the link can edit
+
+## Architecture Overview
+
+Client (React + Quill.js)
+    ↕ WebSocket (Socket.io)
+Server (Node.js + Express)
+    ↕ Mongoose
+Database (MongoDB Atlas)
+
+
+The server broadcasts Quill Delta operations to all users in the same document room using Operational Transformation to resolve conflicts.
