@@ -49,7 +49,7 @@ export default function App() {
 
   // Socket setup
   useEffect(() => {
-    const s = io('http://localhost:3001')
+    const s = io('https://real-time-collaborative-text-editor-production.up.railway.app')
     setSocket(s)
     s.on('connect', () => setStatus('Connected'))
     s.on('disconnect', () => setStatus('Disconnected'))
@@ -281,7 +281,7 @@ export default function App() {
   // Fix 2 — Load revision history with error handling
   const loadRevisions = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/documents/${documentId}/revisions`)
+      const res = await fetch(`https://real-time-collaborative-text-editor-production.up.railway.app/documents/${documentId}/revisions`)
       if (!res.ok) throw new Error('Failed to fetch')
       const data = await res.json()
       const seen = new Set()
